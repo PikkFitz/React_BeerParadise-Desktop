@@ -1,0 +1,22 @@
+.logo {
+  @include verticalCenter;
+  margin: 5px auto;
+  width: 300px;
+  height: 50px;
+  border-radius: 20px;
+  padding: 5px 0;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.307);
+  background: url(../../assets/img/375c845422084847b15dc2ca60685b55.jpg) center/cover; // Background du logo
+
+  i {
+    color: #ff006f;
+  }
+
+  img {
+    height: 40px;
+  }
+  h3 {
+    margin-left: 10px;
+    color: rgb(255, 255, 255);
+  }
+}
