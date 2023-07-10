@@ -1,0 +1,52 @@
+.form-component {
+  .form-container {
+    text-align: center;
+  }
+
+  form {
+    width: 400px;
+    margin: 0 auto;
+
+    input[type="text"] {
+      padding: 1px 10px;
+      border-radius: 10px 10px 0 0;
+      border: none;
+      font-size: 1rem;
+      display: block;
+      margin: 0 auto;
+      width: 300px;
+      height: 30px;
+      outline: none;
+      text-align: center;
+    }
+
+    input[type="submit"] {
+      padding: 1px 10px;
+      width: 300px;
+      border-radius: 0 0 10px 10px;
+      border: none;
+      background: $color-1;
+      color: $white;
+      font-size: 1.2rem;
+      cursor: pointer;
+      z-index: 10;
+      position: relative;
+
+      &:hover {
+        background: green;
+      }
+    }
+
+    input[type="radio"] {
+      margin: 10px;
+      font-size: 1rem;
+    }
+  }
+}
+
+.result {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 5px;
+  justify-content: center;
+}

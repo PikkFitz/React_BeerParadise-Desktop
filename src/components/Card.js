@@ -18,19 +18,19 @@ const Card = ({ produit }) => {  // { produit } --> Les accolades sont nécessai
                 alt={`affiche ${movie.title}`}
             /> */}
             {/* NOM */}
-            <h3>{produit.nom} </h3><p>({produit.id})</p>
+            <h3 className='nom'>{produit.nom} </h3><p>id : {produit.id}</p>
             {/* DATE DE CREATION */}
-            {produit.createdAt ? <h5>Ajoutée le : {dateFormater(produit.createdAt)}</h5> : null}
+            {produit.createdAt ? <h5 className='dateCreation'>Ajoutée le : {dateFormater(produit.createdAt)}</h5> : null}
             {/* DERNIERE DATE DE MODIFICATION */}
-            {produit.updatedAt ? <h5>Modifiée le : {dateFormater(produit.updatedAt)}</h5> : null}
+            {produit.updatedAt ? <h5 className='dateModification'>Modifiée le : {dateFormater(produit.updatedAt)}</h5> : null}
             {/* SOUS-CATEGORIE */}
-            <h5>Sous-Catégorie : {produit.sousCategorie.nom} (id : {produit.sousCategorie.id})</h5> 
+            <h5 className='sousCategorie'>Sous-cat : {produit.sousCategorie.nom} (id : {produit.sousCategorie.id})</h5> 
             {/* PRIX */}
-            <h5>Prix : {produit.prix} €</h5> 
+            <h5 className='prix'>Prix : {produit.prix}€</h5> 
             {/* STOCK */}
-            <h5>Stock : {produit.stock}</h5> 
+            <h5 className='stock'>Stock : {produit.stock}</h5> 
             {/* DESCRIPTION */}
-            {produit.description ? <h3>Description</h3> : ""}
+            {produit.description ? <h4 className='description'>Description</h4> : ""}
             <p>{produit.description}</p>
             {/* BOUTON DE MODIFICATION */}
             {/* BOUTON DE SUPPRESSION */}

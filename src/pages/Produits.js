@@ -73,7 +73,7 @@ const Produits = () => {
                 </div>
 
                 <div className="result">
-
+                    
                     {produitsData
                         .slice(0, 24)  /* slice(0, 24) --> Pour afficher seulement 24 résultats */
                         // eslint-disable-next-line
