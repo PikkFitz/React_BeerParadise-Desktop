@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Card from '../components/Card';
 import Logo from '../components/Logo';
@@ -6,16 +7,22 @@ import Navigation from '../components/Navigation';
 
 const Produits = () => {
 
+    const navigate = useNavigate();
     const [produitsData, setProduitsData] = useState([]);  // Pour stocker les données des produits
     const [search, setSearch] = useState("");  // Pour stocker la recherche (searchBar)
     const [searchType, setSearchType] = useState("nom");  // Par défaut, recherche par ID de produit
+
+    // URL API Site
     let apiUrl = "https://pierre.amorce.org/api/produits";
+
+    // URL API Site local
+    // let apiUrl = "https://127.0.0.1:8000/api/produits";
 
 
     useEffect(() => {
 
         if (searchType === "id") {  // Si recherche par ID
-            apiUrl += `/${search}`;
+            apiUrl += `?&id=${search}`;
         } else {  // Si recherche par nom
             apiUrl += `?&nom=${search}`;
         }
@@ -35,6 +42,11 @@ const Produits = () => {
         <div className="container">
             <Logo />
             <Navigation />
+
+            <div className="btn" id='add' onClick={() => navigate('/form')}>
+                Ajouter un produit
+            </div>
+
             <div>
                 <div className="form-component">
                     <div className="form-container">
@@ -73,18 +85,9 @@ const Produits = () => {
                 </div>
 
                 <div className="result">
-                    
+
                     {produitsData
                         .slice(0, 24)  /* slice(0, 24) --> Pour afficher seulement 24 résultats */
-                        // eslint-disable-next-line
-                        // .sort((a, b) => {
-                        //     if (sortGoodBad === "goodToBad") {
-                        //         return b.vote_average - a.vote_average  /* On tri du mieux noté au moins bien noté */
-                        //     }
-                        //     else if (sortGoodBad === "badToGood") {
-                        //         return a.vote_average - b.vote_average  /* On tri du moins bien noté au mieux noté */
-                        //     }
-                        // })
                         .map((produit) => {
                             return (
                                 <Card produit={produit} key={produit.id} />
